@@ -71,10 +71,25 @@
         top: 50%;
         right: 2%;
         background-color: orange;
+        cursor: pointer;
         color: #fff;
         transform: translate(0, -50%);
         padding: .5rem .8rem;
 
+        &:hover {
+          opacity: 0.9;
+        }
+
       }
+  }
+
+  .copy {
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  .name {
+    color: orange;
+    text-decoration: none;
   }
 }

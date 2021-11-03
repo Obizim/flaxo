@@ -1,6 +1,8 @@
 import "./header.scss";
 import { FiSearch, FiShoppingCart, FiWind } from "react-icons/fi";
 
+import { NavLink } from 'react-router-dom'
+
 const Header = () => {
   return (
     <>
@@ -21,7 +23,8 @@ const Header = () => {
 
       <nav>
         <ul className="nav">
-          <li className="nav-items">Books</li>
+          <NavLink to="/" activeClassName="selected" exact className="nav-items">Home</NavLink>
+          <NavLink to="/books" exact activeClassName="selected" className="nav-items">Books</NavLink>
           <li className="nav-items">About us</li>
           <li className="nav-items">Contact</li>
         </ul>

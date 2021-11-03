@@ -24,3 +24,13 @@
         font-size: 1rem;
     }
 }
+
+.featured {
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 1rem auto;
+
+    .title {
+        font-weight: 400;
+    }
+}

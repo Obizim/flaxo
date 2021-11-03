@@ -72,6 +72,8 @@ const Footer = () => {
       </div>
 
       <hr />
+
+      <p className="copy">Copyright &copy; {new Date().getFullYear()} - Flaxo Bookstore. All rights reserved. Built by <a href="https://www.linkedin.com/in/obizim/" className="name" target="blank">Zim Obi</a></p>
     </footer>
   );
 };

@@ -36,6 +36,10 @@ const Home = () => {
           </div>
         ))}
       </div>
+
+      <div className="featured">
+        <h2 className="title">BESTSELLERS</h2>
+      </div>
     </main>
   );
 };
