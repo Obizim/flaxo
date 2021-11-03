@@ -1,0 +1,80 @@
+.footer {
+  background-color: #1a1a1a;
+  color: #ababab;
+  padding: 2rem 0;
+
+  &-logo {
+    display: flex;
+    align-items: center;
+
+    .logo {
+      font-size: 2rem;
+      margin: 0 0.3rem;
+      color: orange;
+    }
+
+    .logo-text {
+      font-size: 1.5rem;
+      align-self: flex-end;
+    }
+}
+
+  &-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    place-content: center;
+    gap: 1rem;
+    margin: 2rem auto;
+    padding: 0 15px;
+    max-width: 1200px;
+
+    ul > .items  {
+        color: #ffff;
+        margin: .7rem 0;
+        cursor: pointer;
+    }
+
+    .title {
+        font-size: 1rem;
+        font-weight: 400;
+        letter-spacing: 2px;
+    }
+  }
+
+
+  .socials-ul {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+
+    & .items:not(li:first-child) {
+        margin: 0 1rem;
+    }
+  }
+
+
+  .btn {
+      outline: none;
+  }
+
+  .newsletter {
+      position: relative;
+      margin-top: 1rem;
+
+      &-mail {
+        width: 100%;
+      }
+
+
+      .btn {
+        position: absolute;
+        top: 50%;
+        right: 2%;
+        background-color: orange;
+        color: #fff;
+        transform: translate(0, -50%);
+        padding: .5rem .8rem;
+
+      }
+  }
+}
