@@ -1,3 +1,7 @@
+import { useContext } from "react";
+import { NavLink } from "react-router-dom";
+import BookCards from "../components/cards/bookcards";
+import { bookContext } from "../context/bookContext";
 import heroImg from "../images/hero.jpg";
 
 const services = [
@@ -22,6 +26,7 @@ const services = [
 ];
 
 const Home = () => {
+  const { books } = useContext(bookContext);
   return (
     <main>
       <div className="hero-img">
@@ -31,14 +36,24 @@ const Home = () => {
       <div className="services">
         {services.map((s) => (
           <div key={s.id}>
-              <h2 className="heading">{s.heading}</h2>
-              <p className="sub-heading">{s.sub_heading}</p>
+            <h2 className="heading">{s.heading}</h2>
+            <p className="sub-heading">{s.sub_heading}</p>
           </div>
         ))}
       </div>
 
       <div className="featured">
-        <h2 className="title">BESTSELLERS</h2>
+        <h2 className="title">BEST SELLER BOOKS</h2>
+        <div className="featured-books">
+          {books &&
+            books.books.map(
+              (book) =>
+                book.featured && (
+                  <BookCards book={book} />
+                )
+            )}
+            <NavLink className="explore" to="/books">See More</NavLink>
+        </div>
       </div>
     </main>
   );

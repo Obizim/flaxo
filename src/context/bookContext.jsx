@@ -1,9 +1,14 @@
 import { createContext } from "react";
+import { useQuery } from '@apollo/client'
+import { GET_BOOKS } from "../queries/booksQueries";
 
-const bookContext = createContext()
+export const bookContext = createContext()
 
 const BookDataContext = ({children}) => {
-    return <bookContext.Provider value={{}}>
+
+    const {data: books} = useQuery(GET_BOOKS)
+
+    return <bookContext.Provider value={{books}}>
         {children}
     </bookContext.Provider>
 }

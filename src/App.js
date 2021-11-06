@@ -4,23 +4,31 @@ import Header from "./components/header";
 import BookDataContext from "./context/bookContext";
 import Books from "./pages/books";
 import Home from "./pages/Home";
+import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 
 function App() {
+  const client = new ApolloClient({
+    uri: "https://quidax-feec-graphql.herokuapp.com/graphql",
+    cache: new InMemoryCache(),
+  });
+
   return (
-    <BookDataContext>
-    <Router>
-      <Header />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/books">
-          <Books />
-        </Route>
-      </Switch>
-      <Footer />
-    </Router>
-    </BookDataContext>
+    <ApolloProvider client={client}>
+      <BookDataContext>
+        <Router>
+          <Header />
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/books">
+              <Books />
+            </Route>
+          </Switch>
+          <Footer />
+        </Router>
+      </BookDataContext>
+    </ApolloProvider>
   );
 }
 
