@@ -6,9 +6,9 @@ export const bookContext = createContext()
 
 const BookDataContext = ({children}) => {
 
-    const {data: books} = useQuery(GET_BOOKS)
+    const {data: books, loading} = useQuery(GET_BOOKS)
 
-    return <bookContext.Provider value={{books}}>
+    return <bookContext.Provider value={{books, loading}}>
         {children}
     </bookContext.Provider>
 }

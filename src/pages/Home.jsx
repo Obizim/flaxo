@@ -27,6 +27,7 @@ const services = [
 
 const Home = () => {
   const { books } = useContext(bookContext);
+
   return (
     <main>
       <div className="hero-img">
@@ -43,13 +44,13 @@ const Home = () => {
       </div>
 
       <div className="featured">
-        <h2 className="title">BEST SELLER BOOKS</h2>
+        <h2 className="title">BESTSELLER BOOKS</h2>
         <div className="featured-books">
           {books &&
             books.books.map(
               (book) =>
                 book.featured && (
-                  <BookCards book={book} />
+                  <BookCards key={book.id} book={book} />
                 )
             )}
             <NavLink className="explore" to="/books">See More</NavLink>

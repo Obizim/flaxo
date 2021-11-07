@@ -5,6 +5,8 @@ import BookDataContext from "./context/bookContext";
 import Books from "./pages/books";
 import Home from "./pages/Home";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
+import Contact from "./pages/contact";
+import Book from "./pages/book";
 
 function App() {
   const client = new ApolloClient({
@@ -23,6 +25,12 @@ function App() {
             </Route>
             <Route exact path="/books">
               <Books />
+            </Route>
+            <Route exact path="/books/:name">
+              <Book />
+            </Route>
+            <Route exact path="/contact">
+              <Contact />
             </Route>
           </Switch>
           <Footer />

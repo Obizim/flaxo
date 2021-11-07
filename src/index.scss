@@ -40,4 +40,8 @@ input {
   padding: .5rem
 }
 
+a,a:visited, a:link {
+  outline: none;
+  color: inherit;
+}
 @import './styles/home';

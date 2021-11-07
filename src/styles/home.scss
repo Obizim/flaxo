@@ -36,11 +36,14 @@
     margin: 3rem 0;
   }
 
+  .all-books {
+    font-weight: 400;
+  }
+
   &-books {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     justify-content: center;
-    // align-items: center;
     gap: 3rem 2rem;
     margin: 4rem 0;
   }
@@ -48,7 +51,7 @@
 
 .explore {
     background-color: #1a1a1a;
-    color: #fff;
+    color: #fff !important;
     text-decoration: none;
     display: flex;
     justify-content: center;
