@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import BookCards from "../components/cards/bookcards";
+import Loader from "../components/loader";
 import { bookContext } from "../context/bookContext";
 import heroImg from "../images/hero.jpg";
 
@@ -26,7 +27,11 @@ const services = [
 ];
 
 const Home = () => {
-  const { books } = useContext(bookContext);
+  const { books, loading } = useContext(bookContext);
+
+  if(loading) {
+    return <Loader />
+  }
 
   return (
     <main>

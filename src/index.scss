@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&display=swap");
 *,
 *:before,
 *:after {
@@ -8,14 +8,19 @@
   padding: 0;
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
   box-sizing: border-box;
   overflow-x: hidden;
-  font-family: 'Prompt', sans-serif;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Prompt", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   background-color: #fcfcfc;
 }
 
@@ -37,11 +42,18 @@ input {
   outline: none;
   height: 3rem;
   font-family: inherit;
-  padding: .5rem
+  padding: 0.5rem;
 }
 
-a,a:visited, a:link {
+a:visited,
+a:link {
   outline: none;
   color: inherit;
 }
-@import './styles/home';
+
+.loader {
+  padding: 5rem 0;
+}
+
+@import "./styles/home";
+@import "./styles/book";

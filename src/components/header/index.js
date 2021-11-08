@@ -6,17 +6,17 @@ import { useRef, useState } from "react";
 
 const Header = () => {
   const [openModal, setOpenModal] = useState(false);
-  const modalRef = useRef(null)
+  const modalRef = useRef(null);
 
   const showModal = () => {
     setOpenModal(!openModal);
   };
 
-  window.onclick = function(event) {
+  window.onclick = function (event) {
     if (event.target === modalRef.current) {
       setOpenModal(!openModal);
     }
-  }
+  };
 
   return (
     <>
@@ -26,10 +26,17 @@ const Header = () => {
             <div className="modal-content">
               <div className="modal-header">
                 <div className="search">
-                <FiSearch />
-              <input type="search" name="search" placeholder="Search for books" autoFocus={true} />
+                  <FiSearch />
+                  <input
+                    type="search"
+                    name="search"
+                    placeholder="Search for books"
+                    autoFocus={true}
+                  />
                 </div>
-              <span className="close" onClick={showModal}>&times;</span>
+                <span className="close" onClick={showModal}>
+                  &times;
+                </span>
               </div>
             </div>
           </div>
@@ -68,14 +75,6 @@ const Header = () => {
             className="nav-items"
           >
             Books
-          </NavLink>
-          <NavLink
-            to="/contact"
-            exact
-            activeClassName="selected"
-            className="nav-items"
-          >
-            Contact
           </NavLink>
         </ul>
       </nav>

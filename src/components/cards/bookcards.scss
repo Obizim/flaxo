@@ -1,6 +1,5 @@
 .book-card {
   position: relative;
-  cursor: pointer;
 
   .img-wrapper {
     width: 45%;
@@ -23,11 +22,12 @@
     height: 100%;
     position: relative;
 
-    h2 {
+    .title {
       color: orange;
       font-weight: 300;
       font-size: 1.2rem;
       font-weight: 300;
+      text-decoration: none;
     }
 
     .authors {

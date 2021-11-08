@@ -6,12 +6,12 @@ import { NavLink } from "react-router-dom";
 const BookCards = ({ book }) => {
   return (
     <>
-      <NavLink to={`/books/${book.title}`} key={book.id} className="book-card">
-        <div className="img-wrapper">
+      <div key={book.id} className="book-card">
+        <NavLink to={`/books/${book.id}`}  className="img-wrapper">
           <img src={book.image_url} alt={`${book.title} hardcover`} />
-        </div>
+        </NavLink>
         <div className="description">
-          <h2>{book.title}</h2>
+          <NavLink to={`/books/${book.id}`} className="title">{book.title}</NavLink>
           <div className="authors">
             {book.authors.map((author, idx) => (
               <p key={idx}>
@@ -33,11 +33,11 @@ const BookCards = ({ book }) => {
               <p>{`$${book.price}`}</p>
             </div>
             <button className="btn">
-              Add to cart <FiShoppingCart />
+              Add to cart &nbsp; <FiShoppingCart />
             </button>
           </div>
         </div>
-      </NavLink>
+      </div>
     </>
   );
 };
