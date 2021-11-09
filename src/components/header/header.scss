@@ -5,6 +5,10 @@
   margin: 1rem 0;
   padding: 0 4rem;
 
+  @media screen and (max-width: 600px) {
+    padding: 0 1rem;
+  }
+
   &-logo {
     display: flex;
     align-items: center;
@@ -24,6 +28,10 @@
   &-side {
     display: flex;
     font-size: 1.5rem;
+
+    @media screen and (max-width: 468px) {
+      font-size: 1.2rem;
+    }
   }
   &-side > * {
     margin: 0 1rem;
@@ -79,7 +87,7 @@
 .modal {
   position: fixed;
   z-index: 1;
-  padding-top: 100px;
+  padding: 100px 0 5px;
   left: 0;
   top: 0;
   width: 100vw;
@@ -96,11 +104,16 @@
   width: 50%;
   border-radius: 10px;
 
+  @media screen and (max-width: 800px) {
+    width: 85%;
+  }
+
   .modal-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #d3d2d2;
+    margin-bottom: 1rem;
 
     .close {
       flex: 0;

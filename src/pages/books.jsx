@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import BookCards from "../components/cards/bookcards";
 import Loader from "../components/loader";
 import { bookContext } from "../context/bookContext";
@@ -6,6 +6,10 @@ import "../styles/home.scss";
 
 const Books = () => {
   const { books, loading } = useContext(bookContext);
+
+  useEffect(()  => {
+    window.scrollTo(0,0);
+  }, [])
 
   if (loading) {
     return <Loader />;

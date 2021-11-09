@@ -4,11 +4,16 @@ import { GET_BOOK } from "../queries/booksQueries";
 import Loader from "../components/loader";
 import ReactStars from "react-stars";
 import { FiShoppingCart } from "react-icons/fi";
+import { useEffect } from "react";
 
 const Book = () => {
   const { id } = useParams();
 
   const { data, loading } = useQuery(GET_BOOK, { variables: { id } });
+
+  useEffect(()  => {
+    window.scrollTo(0,0);
+  }, [])
 
   if (loading) {
     <Loader />;

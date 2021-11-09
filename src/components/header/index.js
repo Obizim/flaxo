@@ -2,20 +2,43 @@ import "./header.scss";
 import { FiSearch, FiShoppingCart, FiWind } from "react-icons/fi";
 
 import { NavLink } from "react-router-dom";
-import { useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
+import { bookContext } from "../../context/bookContext";
+import SearchResult from "../search-result";
 
 const Header = () => {
   const [openModal, setOpenModal] = useState(false);
+  const [query, setQuery] = useState("");
+  const [searchedBooks, setSearchedBooks] = useState([]);
+
   const modalRef = useRef(null);
+  const { books } = useContext(bookContext);
 
   const showModal = () => {
     setOpenModal(!openModal);
   };
 
+  useEffect(() => {
+    if (openModal) {
+      document.body.style.overflow = "hidden";
+    }else {
+      document.body.style.overflow = "unset";
+    }
+  }, [openModal]);
+
   window.onclick = function (event) {
     if (event.target === modalRef.current) {
       setOpenModal(!openModal);
     }
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const sBooks = books.books.filter((book) => {
+      return book.title.toLowerCase().match(query.toLowerCase());
+    });
+    setSearchedBooks(sBooks);
+    setQuery('')
   };
 
   return (
@@ -25,19 +48,23 @@ const Header = () => {
           <div className="modal" ref={modalRef}>
             <div className="modal-content">
               <div className="modal-header">
-                <div className="search">
+                <form className="search" onSubmit={onSubmit}>
                   <FiSearch />
                   <input
                     type="search"
                     name="search"
                     placeholder="Search for books"
                     autoFocus={true}
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
                   />
-                </div>
+                </form>
                 <span className="close" onClick={showModal}>
                   &times;
                 </span>
               </div>
+              
+              <SearchResult searchedBooks={searchedBooks} modal={openModal} modalFunc={setOpenModal} />
             </div>
           </div>
         )}

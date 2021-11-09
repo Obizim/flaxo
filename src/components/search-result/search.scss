@@ -1,0 +1,23 @@
+.search-result {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-decoration: none;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+
+    & > * {
+        flex-basis: 100% 100%;
+    }
+
+    &:hover{ 
+        background-color: orange;
+        color: #fff;
+    }
+
+    h2 {
+        font-weight: 500;
+        font-size: 1rem;
+    }
+}
