@@ -27,7 +27,7 @@ const Footer = () => {
               <FiPhoneCall /> +234-814-356-345-1, +234-81-345-345-2
             </li>
             <li className="items">
-              <FiMail /> falxobookstore@gmail.com
+              <FiMail /> flaxobookstore@gmail.com
             </li>
           </ul>
         </div>

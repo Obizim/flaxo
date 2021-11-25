@@ -1,15 +1,10 @@
 .search-result {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
     text-decoration: none;
+    display: inline-block;
+    width: 100%;
     padding: 1rem;
     cursor: pointer;
     border-radius: 5px;
-
-    & > * {
-        flex-basis: 100% 100%;
-    }
 
     &:hover{ 
         background-color: orange;
@@ -19,5 +14,13 @@
     h2 {
         font-weight: 500;
         font-size: 1rem;
+
+        .by {
+            font-weight: 400;
+        }
+    }
+
+    .authors {
+        font-weight: 400;
     }
 }

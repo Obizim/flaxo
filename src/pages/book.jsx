@@ -56,7 +56,7 @@ const Book = () => {
                     {data.book.genres.map((genre, idx) => (
                       <span key={idx}>
                         {genre.name}
-                        {idx < data.book.authors.length - 1 ? ",\u00A0" : ""}
+                        {idx < data.book.genres.length - 1 ? ",\u00A0" : ""}
                       </span>
                     ))}
                   </div>

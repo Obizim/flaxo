@@ -10,15 +10,16 @@ const SearchResult = ({searchedBooks, modalFunc, modal}) => {
     return <>
     {searchedBooks.map((s) => (
         <NavLink to={`/books/${s.id}`} className="search-result" onClick={onClick}>
-        <h2>{s.title}</h2>
-        <div className="authors">
+        <h2><span>{s.title} <span className="by">by</span></span>
+        <span className="authors">
             {s.authors.map((author, idx) => (
               <p key={idx}>
                 {author.name}
                 {idx < s.authors.length - 1 ? ",\u00A0" : ""}
               </p>
             ))}
-          </div>
+          </span>
+          </h2>
     </NavLink>
     ))}
     

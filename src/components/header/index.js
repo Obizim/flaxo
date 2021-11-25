@@ -1,13 +1,14 @@
 import "./header.scss";
 import { FiSearch, FiShoppingCart, FiWind } from "react-icons/fi";
-
 import { NavLink } from "react-router-dom";
 import { useContext, useEffect, useRef, useState } from "react";
 import { bookContext } from "../../context/bookContext";
 import SearchResult from "../search-result";
+import Cart from "../cart/cart";
 
 const Header = () => {
   const [openModal, setOpenModal] = useState(false);
+  const [openCart, setOpencart] = useState(false);
   const [query, setQuery] = useState("");
   const [searchedBooks, setSearchedBooks] = useState([]);
 
@@ -18,10 +19,14 @@ const Header = () => {
     setOpenModal(!openModal);
   };
 
+  const showCart = () => {
+    setOpencart(!openCart);
+  };
+
   useEffect(() => {
     if (openModal) {
       document.body.style.overflow = "hidden";
-    }else {
+    } else {
       document.body.style.overflow = "unset";
     }
   }, [openModal]);
@@ -38,7 +43,7 @@ const Header = () => {
       return book.title.toLowerCase().match(query.toLowerCase());
     });
     setSearchedBooks(sBooks);
-    setQuery('')
+    setQuery("");
   };
 
   return (
@@ -63,12 +68,18 @@ const Header = () => {
                   &times;
                 </span>
               </div>
-              
-              <SearchResult searchedBooks={searchedBooks} modal={openModal} modalFunc={setOpenModal} />
+
+              <SearchResult
+                searchedBooks={searchedBooks}
+                modal={openModal}
+                modalFunc={setOpenModal}
+              />
             </div>
           </div>
         )}
       </>
+
+      <div className={`${!openCart ? "cart-active" : "cart-inactive"} cart-bg`}>{<Cart openCart={showCart} />}</div>
 
       <header className="header">
         <div className="header-logo">
@@ -78,9 +89,9 @@ const Header = () => {
 
         <div className="header-side">
           <FiSearch onClick={showModal} />
-          <div className="cart">
+          <div className="cart" onClick={showCart}>
             <FiShoppingCart />
-            <p className="cart-count">10</p>
+            <p className="cart-count">0</p>
           </div>
         </div>
       </header>

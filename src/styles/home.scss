@@ -1,7 +1,11 @@
 .hero-img img {
   height: calc(100vh - 30vh);
-  width: 100vw;
+  width: 100%;
   object-fit: cover;
+
+  @media screen and (max-width: 420px) {
+    height: calc(100vh - 40vh);
+  }
 }
 
 .services {

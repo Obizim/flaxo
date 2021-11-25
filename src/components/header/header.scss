@@ -135,3 +135,21 @@
     }
   }
 }
+
+.cart-bg {
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 9999;
+}
+.cart-inactive {
+  transform: translateX(0%);
+  transition: .3s ease-in-out;
+}
+.cart-active {
+  transform: translateX(100%);
+  transition: .3s ease-in-out;
+}

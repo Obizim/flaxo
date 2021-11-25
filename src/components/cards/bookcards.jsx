@@ -1,4 +1,4 @@
-import "./bookcards.scss";
+import "./cards.scss";
 import ReactStars from "react-stars";
 import { FiShoppingCart } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
