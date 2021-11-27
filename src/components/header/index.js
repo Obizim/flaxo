@@ -5,6 +5,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { bookContext } from "../../context/bookContext";
 import SearchResult from "../search-result";
 import Cart from "../cart/cart";
+import { cartContext } from "../../context/cartContext";
 
 const Header = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -14,6 +15,7 @@ const Header = () => {
 
   const modalRef = useRef(null);
   const { books } = useContext(bookContext);
+  const { cartItems } = useContext(cartContext);
 
   const showModal = () => {
     setOpenModal(!openModal);
@@ -79,8 +81,6 @@ const Header = () => {
         )}
       </>
 
-      
-
       <header className="header">
         <div className="header-logo">
           <FiWind className="logo" />
@@ -91,11 +91,13 @@ const Header = () => {
           <FiSearch onClick={showModal} />
           <div className="cart" onClick={showCart}>
             <FiShoppingCart />
-            <p className="cart-count">0</p>
+            <p className="cart-count">{cartItems.length}</p>
           </div>
         </div>
       </header>
-      <div className={`${!openCart ? "cart-active" : "cart-inactive"} cart-bg`}>{<Cart openCart={showCart} />}</div>
+      <div className={`${!openCart ? "cart-active" : "cart-inactive"} cart-bg`}>
+        {<Cart openCart={showCart} />}
+      </div>
 
       <nav>
         <ul className="nav">
