@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import BookCards from "../components/cards/bookcards";
 import Loader from "../components/loader";
 import { bookContext } from "../context/bookContext";
+import { cartContext } from "../context/cartContext";
 import heroImg from "../images/hero.jpg";
 
 const services = [
@@ -28,9 +29,10 @@ const services = [
 
 const Home = () => {
   const { books, loading } = useContext(bookContext);
+  const { onAdd } = useContext(cartContext);
 
-  if(loading) {
-    return <Loader />
+  if (loading) {
+    return <Loader />;
   }
 
   return (
@@ -55,10 +57,12 @@ const Home = () => {
             books.books.map(
               (book) =>
                 book.featured && (
-                  <BookCards key={book.id} book={book} />
+                  <BookCards key={book.id} book={book} add={onAdd} />
                 )
             )}
-            <NavLink className="explore" to="/books">See More</NavLink>
+          <NavLink className="explore" to="/books">
+            See More
+          </NavLink>
         </div>
       </div>
     </main>

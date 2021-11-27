@@ -1,26 +1,36 @@
-import './cards.scss';
+import "./cards.scss";
 
-const CartCard = () => {
+const CartCard = ({ cart, add, decrease, remove }) => {
+  let itemPrice = cart.qty * cart.price;
+
   return (
-    <div className="cart-card">
-      <div className="cart-card-img">
-      <img src="https://res.cloudinary.com/quidaxengineering/image/upload/v1611741483/feec/the-effective-engineer-cover_bgj7u4.jpg" alt="" />
-      </div>
-
-      <div className="cart-card-details">
-        <h2 className="name">The Effective Engineer</h2>
-
-        <div className="quantity">
-          <button className="sign">-</button>
-          <span className="number">1</span>
-          <button className="sign">+</button>
+    <>
+      <div key={cart.id} className="cart-card">
+        <div className="cart-card-img">
+          <img src={cart.image_url} alt={cart.title} />
         </div>
 
-        <p>$200,00</p>
+        <div className="cart-card-details">
+          <h2 className="name">{cart.title}</h2>
 
-        <button className="remove">Remove</button>
+          <div className="quantity">
+            <button className="sign" onClick={() => decrease(cart)}>
+              -
+            </button>
+            <span className="number">{cart.qty}</span>
+            <button className="sign" onClick={() => add(cart)}>
+              +
+            </button>
+          </div>
+
+          <p>${itemPrice.toFixed(2)}</p>
+
+          <button className="remove" onClick={() => remove(cart)}>
+            Remove
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

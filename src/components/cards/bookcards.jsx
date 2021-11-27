@@ -3,15 +3,18 @@ import ReactStars from "react-stars";
 import { FiShoppingCart } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 
-const BookCards = ({ book }) => {
+const BookCards = ({ book, add }) => {
+
   return (
     <>
       <div key={book.id} className="book-card">
-        <NavLink to={`/books/${book.id}`}  className="img-wrapper">
+        <NavLink to={`/books/${book.id}`} className="img-wrapper">
           <img src={book.image_url} alt={`${book.title} hardcover`} />
         </NavLink>
         <div className="description">
-          <NavLink to={`/books/${book.id}`} className="title">{book.title}</NavLink>
+          <NavLink to={`/books/${book.id}`} className="title">
+            {book.title}
+          </NavLink>
           <div className="authors">
             {book.authors.map((author, idx) => (
               <p key={idx}>
@@ -32,7 +35,7 @@ const BookCards = ({ book }) => {
               />
               <p>{`$${book.price}`}</p>
             </div>
-            <button className="btn">
+            <button className="btn" onClick={() => add(book)}>
               Add to cart &nbsp; <FiShoppingCart />
             </button>
           </div>

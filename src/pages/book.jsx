@@ -4,10 +4,12 @@ import { GET_BOOK } from "../queries/booksQueries";
 import Loader from "../components/loader";
 import ReactStars from "react-stars";
 import { FiShoppingCart } from "react-icons/fi";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { cartContext } from "../context/cartContext";
 
 const Book = () => {
   const { id } = useParams();
+  const { onAdd } = useContext(cartContext);
 
   const { data, loading } = useQuery(GET_BOOK, { variables: { id } });
 
@@ -63,7 +65,7 @@ const Book = () => {
                 </div>
               </div>
               <h2 className="price">{`$${data.book.price}`}</h2>
-              <button className="btn">
+              <button className="btn" onClick={() => onAdd(data.book,data.book.id)}>
                 Add to Cart &nbsp; <FiShoppingCart />
               </button>
             </div>

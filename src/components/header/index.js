@@ -79,7 +79,7 @@ const Header = () => {
         )}
       </>
 
-      <div className={`${!openCart ? "cart-active" : "cart-inactive"} cart-bg`}>{<Cart openCart={showCart} />}</div>
+      
 
       <header className="header">
         <div className="header-logo">
@@ -95,6 +95,7 @@ const Header = () => {
           </div>
         </div>
       </header>
+      <div className={`${!openCart ? "cart-active" : "cart-inactive"} cart-bg`}>{<Cart openCart={showCart} />}</div>
 
       <nav>
         <ul className="nav">

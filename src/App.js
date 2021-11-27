@@ -6,6 +6,7 @@ import Books from "./pages/books";
 import Home from "./pages/Home";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import Book from "./pages/book";
+import CartDataContext from "./context/cartContext";
 
 function App() {
   const client = new ApolloClient({
@@ -15,23 +16,25 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-      <BookDataContext>
-        <Router>
-          <Header />
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/books">
-              <Books />
-            </Route>
-            <Route exact path="/books/:id">
-              <Book />
-            </Route>
-          </Switch>
-          <Footer />
-        </Router>
-      </BookDataContext>
+      <CartDataContext>
+        <BookDataContext>
+          <Router>
+            <Header />
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route exact path="/books">
+                <Books />
+              </Route>
+              <Route exact path="/books/:id">
+                <Book />
+              </Route>
+            </Switch>
+            <Footer />
+          </Router>
+        </BookDataContext>
+      </CartDataContext>
     </ApolloProvider>
   );
 }
