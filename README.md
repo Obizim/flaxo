@@ -4,6 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Flaxo-Bookstore
 
+Live Preview - [Flaxo Bookstore](https://flaxo-bookstore.vercel.app/)
+
 ## Tech Stack
 
 - React
