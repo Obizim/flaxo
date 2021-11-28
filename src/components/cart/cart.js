@@ -23,10 +23,12 @@ const Cart = ({ openCart }) => {
 
       <div className="cart-body">
         {cartItems.length === 0 ? (
-          <h2 className="empty"><FiShoppingCart /> &nbsp; Your Cart is Empty</h2>
+          <h2 className="empty">
+            <FiShoppingCart /> &nbsp; Your Cart is Empty
+          </h2>
         ) : (
-          cartItems.map((cart, idx) => {
-            return (
+          <div>
+            {cartItems.map((cart, idx) => (
               <div key={idx}>
                 <CartCard
                   cart={cart}
@@ -34,15 +36,15 @@ const Cart = ({ openCart }) => {
                   decrease={onDecrease}
                   remove={onRemove}
                 />
-                <div className="total">
-                  <h2>Total</h2>
-                  <h2>${total.toFixed(2)}</h2>
-                </div>
-
-                <button className="checkout">Checkout</button>
               </div>
-            );
-          })
+            ))}
+            <div className="total">
+              <h2>Total</h2>
+              <h2>${total.toFixed(2)}</h2>
+            </div>
+
+            <button className="checkout">Checkout</button>
+          </div>
         )}
       </div>
     </aside>

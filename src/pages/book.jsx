@@ -32,7 +32,7 @@ const Book = () => {
 
             <div className="contents">
               <h2 className="name">{data.book.title}</h2>
-              <p className="name">{data.book.subtitle}</p>
+              <p className="sub-name">{data.book.subtitle}</p>
               <div className="authors">
                 {data.book.authors.map((author, idx) => (
                   <span key={idx}>
@@ -65,7 +65,7 @@ const Book = () => {
                 </div>
               </div>
               <h2 className="price">{`$${data.book.price}`}</h2>
-              <button className="btn" onClick={() => onAdd(data.book,data.book.id)}>
+              <button className="btn" onClick={() => onAdd(data.book)}>
                 Add to Cart &nbsp; <FiShoppingCart />
               </button>
             </div>
