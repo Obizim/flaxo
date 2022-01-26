@@ -6,7 +6,7 @@ const SearchResult = ({searchedBooks, modalFunc, modal}) => {
         modalFunc(!modal)
         document.body.style.overflow = "unset";
     }   
-
+    
     return <>
     {searchedBooks.map((s) => (
         <NavLink to={`/books/${s.id}`} className="search-result" onClick={onClick}>

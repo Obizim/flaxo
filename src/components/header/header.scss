@@ -1,12 +1,21 @@
+.header-container {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  top: 0;
+  height: 20vh;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1rem 0;
-  padding: 0 4rem;
+  border-bottom: 1px solid #c0c0c0;
+  padding: 1rem 4rem;
+  background-color: #f2f2f2;
 
   @media screen and (max-width: 600px) {
-    padding: 0 1rem;
+    padding: 1rem;
   }
 
   &-logo {
@@ -98,7 +107,7 @@
 
 .modal-content {
   background-color: #fcfcfc;
-  margin: auto;
+  margin: calc(100vh - 90vh) auto;
   padding: 20px;
   border: 1px solid #d3d2d2;
   width: 50%;

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import BookCards from "../components/cards/bookcards";
 import Loader from "../components/loader";
@@ -30,6 +30,10 @@ const services = [
 const Home = () => {
   const { books, loading } = useContext(bookContext);
   const { onAdd } = useContext(cartContext);
+
+  useEffect(()  => {
+    window.scrollTo(0,0);
+  }, [])
 
   if (loading) {
     return <Loader />;

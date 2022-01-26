@@ -2,6 +2,7 @@
   height: calc(100vh - 30vh);
   width: 100%;
   object-fit: cover;
+  margin-top: calc(100vh - 90vh);
 
   @media screen and (max-width: 420px) {
     height: calc(100vh - 40vh);
@@ -42,6 +43,7 @@
 
   .all-books {
     font-weight: 400;
+    margin-top: calc(100vh - 80vh);
   }
 
   &-books {

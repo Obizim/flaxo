@@ -1,7 +1,7 @@
 .book-details {
   max-width: 1200px;
   padding: 1rem 15px;
-  margin: 2rem auto;
+  margin: calc(100vh - 80vh) auto;
 
   .description {
     line-height: 1.7;

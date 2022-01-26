@@ -80,7 +80,8 @@ const Header = () => {
           </div>
         )}
       </>
-
+      
+      <section className="header-container">
       <header className="header">
         <div className="header-logo">
           <FiWind className="logo" />
@@ -119,6 +120,7 @@ const Header = () => {
           </NavLink>
         </ul>
       </nav>
+      </section>
     </>
   );
 };
